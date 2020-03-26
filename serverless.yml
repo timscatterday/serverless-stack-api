@@ -111,6 +111,24 @@ functions:
           cors: true
           authorizer: aws_iam
 
+  create-comment:
+    handler: create-comment.main
+    events:
+      - http:
+          path: create-comment/{id}
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  get-comments:
+    handler: list-comments.main
+    events:
+      - http:
+          path: comments/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
 # Create our resources with separate CloudFormation templates
 resources:
   # API Gateway Errors
